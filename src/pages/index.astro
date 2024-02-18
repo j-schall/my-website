@@ -1,0 +1,57 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import NewestPost from "../components/NewestPost.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="headline">
+				<h1 class="heading-one">Hello, world!</h1>
+				<h1 class="heading-two">Hello, world!</h1>
+			</div>
+			<p>
+				Welcome to my homepage! My name is Jan and I will here post stuff about my projects
+				and ideas. <br /> I work generally with Java, but I learn currently
+				about embedded systems on microcontroller, like <a id="arduino" href="https://en.wikipedia.org/wiki/Arduino">Arduinos</a> or 
+				<a href="https://en.wikipedia.org/wiki/ESP32">ESPs</a>.
+				I deal with IT for around 2,5 years and lots of my projects, that
+				I've build are based on the JavaFX library, which is for me the perfect
+				choice of building simple Desktop applications. I know that's not
+				a popular choice but I still search a better one;)
+			</p>
+			<p>
+				See <a href="./blog/">here</a> my newest post.
+			</p>
+			<NewestPost title="Latest Post" description="Click to get to the post" pubDate={new Date("February 17 2024")} />
+		</main>
+		<Footer />
+		<style>
+			.headline {
+				position: relative;
+				perspective: 1000px; /* Definiert die Perspektive für die 3D-Transformation */
+			}
+			.heading-one {
+				position: relative;
+				z-index: 2; /* Legt die Ebene der ersten Überschrift fest, damit sie vor der zweiten erscheint */
+			}
+
+			.heading-two {
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: translateZ(-50px); /* Versetzt die zweite Überschrift nach hinten */
+				color: #888; /* Farbe für den "Tiefeneffekt" */
+				z-index: 1; /* Legt die Ebene der zweiten Überschrift fest, damit sie hinter der ersten erscheint */
+			}
+		</style>
+	</body>
+</html>
