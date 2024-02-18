@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "./BaseHead.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 type Props = CollectionEntry<"blog">["data"];
-const { title, description } = Astro.props;
+const { title, description, heroImage } = Astro.props;
 ---
 
 <html lang="en">
@@ -48,7 +48,7 @@ const { title, description } = Astro.props;
 						<FormattedDate date={new Date("February 17 2024")} />
 					</div>
 					<h1>{title}</h1>
-					<a href="/blog/function-visualizer"><img width={720} height={360} src="/public/post-17-2.png" alt="" /></a>
+					<a href="/blog/function-visualizer"><img width={720} height={360} src="/post-17-2.png" alt="" /></a>
 				</div>
 			</article>
 		</main>
